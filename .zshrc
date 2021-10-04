@@ -13,4 +13,5 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 eval "$(starship init zsh)"
+export GPG_TTY=$(tty)
 alias dotfiles='/usr/bin/git --git-dir=/home/flightcode/.dotfiles/ --work-tree=/home/flightcode'
