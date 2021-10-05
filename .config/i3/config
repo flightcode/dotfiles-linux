@@ -161,4 +161,4 @@ bindsym $mod+r mode "resize"
 
 # Software
 exec ~/.config/fehbg/fehbg.conf
-exec --no-startup-id picom
+exec --no-startup-id picom -b --experimental backends
