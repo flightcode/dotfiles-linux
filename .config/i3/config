@@ -160,5 +160,5 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Software
-exec feh
+exec ~/.config/fehbg/fehbg.conf
 exec --no-startup-id picom
