@@ -162,3 +162,4 @@ bindsym $mod+r mode "resize"
 # Software
 exec ~/.config/fehbg/fehbg.conf
 exec --no-startup-id picom -b --experimental backends
+exec --no-startup-id $HOME/.config/polybar/launch.sh
