@@ -4,17 +4,17 @@ bindsym $mod+Return exec kitty
 
 set $mod Mod1
 
+# Font
+font pango:Sauce Code Pro Nerd Font Complete 8
+
 # Gaps
-gaps top 50
 gaps inner 15
-gaps outer 10
+gaps outer 5
 
 # Borders
-default_border pixel 3
+smart_borders on
+default_border pixel 2
 default_floating_border normal
-
-# Font
-font pango:Source Code Pro Nerd Font Complete 8
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
