@@ -2,14 +2,16 @@
 exec --no-startup-id nm-applet
 bindsym $mod+Return exec kitty
 
-set $mod Mod1
+set $mod Mod4
+set $sup Mod1
 
 # Font
-font pango:Sauce Code Pro Nerd Font Complete 8
+font pango:SauceCodePro Nerd Font 10.5
 
 # Gaps
 gaps inner 15
 gaps outer 5
+gaps top 40
 
 # Borders
 smart_borders on
@@ -161,5 +163,5 @@ bindsym $mod+r mode "resize"
 
 # Software
 exec ~/.config/fehbg/fehbg.conf
-exec --no-startup-id picom -b --experimental backends
+exec --no-startup-id picom -b --experimental-backends
 exec --no-startup-id $HOME/.config/polybar/launch.sh
