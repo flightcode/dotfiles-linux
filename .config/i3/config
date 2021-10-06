@@ -1,6 +1,5 @@
 # Startup
 exec --no-startup-id nm-applet
-bindsym $mod+Return exec kitty
 
 set $mod Mod1
 set $sup Mod4
@@ -29,6 +28,9 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Open Terminal
+bindsym $mod+Return exec kitty
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -164,6 +166,9 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Multiple Monitors
+exec_always autorandr --change
 
 # Software
 exec ~/.config/fehbg/fehbg.conf
