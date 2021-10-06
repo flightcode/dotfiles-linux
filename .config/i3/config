@@ -2,8 +2,8 @@
 exec --no-startup-id nm-applet
 bindsym $mod+Return exec kitty
 
-set $mod Mod4
-set $sup Mod1
+set $mod Mod1
+set $sup Mod4
 
 # Font
 font pango:SauceCodePro Nerd Font 10.5
