@@ -169,8 +169,8 @@ bindsym $mod+r mode "resize"
 
 # Multiple Monitors
 exec_always autorandr --change
+exec_always ~/.config/fehbg/fehbg.conf
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Software
-exec ~/.config/fehbg/fehbg.conf
 exec --no-startup-id picom -b --experimental-backends
-exec --no-startup-id $HOME/.config/polybar/launch.sh
