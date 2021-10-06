@@ -41,7 +41,7 @@ wrapping-scroll = true
 fuzzy-match = true
 
 ws-icon-0 = neofetch;
-ws-icon-1 = 2;
+ws-icon-1 = kitty;
 ws-icon-2 = firefox;爵
 ws-icon-default = 
 
