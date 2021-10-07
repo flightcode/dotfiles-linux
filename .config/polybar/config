@@ -2,6 +2,8 @@
 override-redirect = true
 wm-restack = i3 
 
+monitor = ${env:MONITOR:}
+
 top = true
 fixed-center = true
 
@@ -18,11 +20,11 @@ module-margin = 2
 line-size = 2
 line-color = #000
 
-font-0 = "SauceCodePro Nerd Font:style=Regular:size=11;3"
+font-0 = "SauceCodePro Nerd Font:style=Regular:size=10:fontformat=truetype;1"
 
 modules-left = i3
 modules-center = date 
-modules-right = 
+modules-right = audio net
 
 tray-position = right
 tray-detached = false
@@ -30,14 +32,13 @@ tray-maxsize = 16
 
 [module/i3]
 type = internal/i3
-  
-pin-workspaces = false
+
+pin-workspaces = true
 strip-wsnumbers = true
 index-sort = true
 enable-click = true
 enable-scroll = true
 wrapping-scroll = true
-
 fuzzy-match = true
 
 ws-icon-0 = neofetch;
@@ -45,31 +46,56 @@ ws-icon-1 = kitty;
 ws-icon-2 = firefox;爵
 ws-icon-default = 
 
-label-focused = %icon%
+label-focused = %name%
 label-focused-background = #90000000
 label-focused-underline = #ffffffff
 label-focused-padding = 3
 
-label-unfocused = %icon%
+label-unfocused = %name%
 label-unfocused-padding = 3
 
-label-visible = %icon%
+label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
-label-urgent = %icon%
+label-urgent = %name++%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
-
-label-separator = 
-
 
 [module/date]
 type=internal/date
 
-interval=1.0
+interval=1
 
 date = %Y-%m-%d%
-time = %H:%M
+time = %H:%M:%S
+label = %date% %time%
 
+[module/audio]
+type = internal/pulseaudio
+
+use-ui-max = true
+
+format-volume = <ramp-volume> <label-volume>
+format-muted = <label-muted>
+
+label-muted = 婢
+
+label-volume = %percentage%%
+
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+
+[module/net]
+type = internal/network
+
+interface = eno1
+interval = 1
+
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = Offline
+
+ramp-signal-0 = 
+label-connected = %upspeed%  %downspeed%
