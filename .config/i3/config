@@ -1,9 +1,3 @@
-# Startup
-exec --no-startup-id nm-applet
-
-set $mod Mod1
-set $sup Mod4
-
 # Font
 font pango:SauceCodePro Nerd Font 10.5
 
@@ -17,6 +11,79 @@ smart_borders on
 default_border pixel 2
 default_floating_border normal
 
+# Control Keys
+set $mod Mod1
+set $sup Mod4
+
+# Simulate CTRL Functions
+#bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
+#bindsym --release $mod+x exec --no-startup-id xdotool key --clearmodifiers ctrl+x
+#bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+#bindsym --release $mod+s exec --no-startup-id xdotool key --clearmodifiers ctrl+S
+
+# Manage i3
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Exit' 'i3-msg exit'"
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Quit Window
+bindsym $mod+shift+q kill
+
+# Change Focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Focus All in Workspace    
+bindsym $mod+a focus parent
+
+# Switch Focus Mode (Floating/Tiling)
+bindsym $mod+space focus mode_toggle
+
+# Move Window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split Horizontally
+bindsym $mod+Shift+h split h
+
+# Split Vertically
+bindsym $mod+Shift+v split v
+
+# Move Floating Tiles
+floating_modifier $mod
+
+# Toggle Floating/Tiling
+bindsym $mod+Shift+space floating toggle
+
+# Resize Window
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym Left resize shrink width 20 px
+        bindsym Down resize grow height 20 px
+        bindsym Up resize shrink height 20 px
+        bindsym Right resize grow width 20 px
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Open Terminal
+bindsym $mod+Return exec kitty
+
+# Open Menu
+# bindsym $mod+d exec --no-startup-id dmenu_run
+# bindcode $mod+Space exec "rofi -modi drun,run -show drun"
+# bindcode $mod+w exec "rofi -modi window,run -show window"
+# bindcode 
+
 # Audio Controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -29,75 +96,7 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Open Terminal
-bindsym $mod+Return exec kitty
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
-# A more modern dmenu replacement is rofi:
-bindcode $mod+40 exec "rofi -modi drun,run -show drun"
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
+# Workspaces
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -109,7 +108,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-# switch to workspace
+# Switch to Workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
@@ -121,7 +120,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-# move focused container to workspace
+# Move Container to Workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
@@ -133,44 +132,16 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# Move Workspace to Monitor
+bindsym $mod+z move workspace to output left
+bindsym $mod+x move workspace to output current
+bindsym $mod+c move workspace to output right
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-# Multiple Monitors
+# Start Always (Multiple Monitors)
 exec_always autorandr --change
 exec_always ~/.config/fehbg/fehbg.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-# Software
+# Start Initially 
+exec --no-startup-id nm-applet
 exec --no-startup-id picom -b --experimental-backends
