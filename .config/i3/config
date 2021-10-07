@@ -38,7 +38,7 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# Focus All in Workspace    
+# Focus All in Workspace
 bindsym $mod+a focus parent
 
 # Switch Focus Mode (Floating/Tiling)
