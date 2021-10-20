@@ -1,6 +1,6 @@
 [bar/topbar]
 override-redirect = true
-wm-restack = i3 
+wm-restack = i3
 
 monitor = ${env:MONITOR:}
 
@@ -24,7 +24,7 @@ font-0 = "SauceCodePro Nerd Font:style=Regular:size=10:fontformat=truetype;1"
 
 modules-left = i3
 modules-center = date 
-modules-right = audio net
+modules-right = audio net cpu ram
 
 tray-position = right
 tray-detached = false
@@ -99,3 +99,21 @@ format-disconnected = Offline
 
 ramp-signal-0 = 
 label-connected = %upspeed%  %downspeed%
+
+[module/cpu]
+type = internal/cpu
+
+interval = 1
+
+format = <label>
+
+label =  %percentage%%
+
+[module/ram]
+type = internal/memory
+
+interval = 1
+
+format = <label>
+
+label =  %gb_used%/%gb_total%
