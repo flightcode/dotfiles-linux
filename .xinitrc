@@ -30,6 +30,6 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-source ~/.config/fehbg
-
+source ~/.config/fehbg &
+xss-lock -l -- betterlockscreen -l dimblur --display 1 --span &
 exec i3
