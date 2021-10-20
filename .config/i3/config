@@ -21,7 +21,7 @@ set $sup Mod1
 #bindsym --release $mod+s exec --no-startup-id xdotool key --clearmodifiers ctrl+S
 
 # Manage i3
-bindsym $mod+Shift+c reload
+bindsym $mod+shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Exit' 'i3-msg exit'"
 
@@ -83,6 +83,9 @@ bindsym $mod+Return exec kitty
 # Open Menu
 bindsym $mod+space exec rofi -show run -config /home/flightcode/.config/rofi
 
+# Open Password Menu
+bindsym $mod+shift+p exec bwmenu
+
 # Audio Controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -133,8 +136,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Move Workspace to Monitor
 bindsym $mod+z move workspace to output left
-bindsym $mod+x move workspace to output current
-bindsym $mod+c move workspace to output right
+bindsym $mod+x move workspace to output right
 
 # Start Always (Multiple Monitors)
 exec_always autorandr --change
