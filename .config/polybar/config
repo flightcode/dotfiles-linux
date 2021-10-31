@@ -1,6 +1,7 @@
 [bar/topbar]
 override-redirect = true
 wm-restack = i3
+enable-ip = true
 
 monitor = ${env:MONITOR:}
 
@@ -24,7 +25,7 @@ font-0 = "SauceCodePro Nerd Font:style=Regular:size=10:fontformat=truetype;1"
 
 modules-left = i3
 modules-center = date 
-modules-right = audio net cpu ram
+modules-right = audio net-eth
 
 tray-position = right
 tray-detached = false
@@ -88,17 +89,31 @@ ramp-volume-0 = 奄
 ramp-volume-1 = 奔
 ramp-volume-2 = 墳
 
-[module/net]
+[module/net-eth]
 type = internal/network
 
 interface = eno1
 interval = 1
 
 format-connected = <ramp-signal> <label-connected>
-format-disconnected = Offline
+format-disconnected = Eth Offline
 
-ramp-signal-0 = 
+ramp-signal-0 =  
 label-connected = %upspeed%  %downspeed%
+
+[module/net-wlan]
+type = internal/network
+
+click-left = rofi-wifi-menu &
+
+interface = wlp0s20u2
+interval = 1
+
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = WLAN Offline
+
+ramp-signal-0 =  
+label-connected = %essid% %upspeed%  %downspeed%
 
 [module/cpu]
 type = internal/cpu

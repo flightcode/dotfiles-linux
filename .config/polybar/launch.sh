@@ -3,10 +3,14 @@
 # Terminate Pre-Running
 killall -q polybar
 
-# Launch Bars
-echo "---" | tee -a /tmp/polybar1.log
-polybar topbar 2>&1 | tee -a /tmp/polybar1.log & disown
+# Wait for processes to shut down
+while pgrep -u $UID -x polybar > /dev/null; do sleep 1; done
 
-for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-	MONITOR=$m polybar --reload topbar &
-done
+# Launch Bars
+if type "xrandr"; then
+  for m in $(xrandr -q | grep -w connected | cut -d" " -f1); do
+    MONITOR=$m polybar --reload topbar &
+  done
+else
+  polybar --reload topbar &
+fi

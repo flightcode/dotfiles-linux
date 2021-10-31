@@ -141,7 +141,7 @@ bindsym $mod+x move workspace to output right
 # Start Always (Multiple Monitors)
 exec_always autorandr --change
 exec_always ~/.config/fehbg/fehbg.conf &
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 # Start Initially 
 exec --no-startup-id nm-applet &
