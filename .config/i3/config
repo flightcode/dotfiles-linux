@@ -81,7 +81,7 @@ mode "resize" {
 bindsym $mod+Return exec kitty
 
 # Open Menu
-bindsym $mod+space exec rofi -show run -config /home/flightcode/.config/rofi
+bindsym $mod+space exec rofi -show run
 
 # Open Password Menu
 bindsym $mod+shift+p exec bwmenu
