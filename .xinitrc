@@ -32,4 +32,5 @@ fi
 
 source ~/.config/fehbg &
 xss-lock -l -- betterlockscreen -l dimblur --display 1 --span &
-exec i3
+# exec i3
+exec bspwm

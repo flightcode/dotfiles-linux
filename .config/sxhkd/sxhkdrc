@@ -1,0 +1,65 @@
+# Open Terminal
+super + Return
+	kitty
+
+# Open Powermenu/Dashboard
+# TODO
+
+# Lock Screen
+super + Escape
+	betterlockscreen -l dimblur --display 1 --span
+
+# Open Menu
+super + @space
+	rofi -show run
+# TODO: Open Other Menu's with space+...?
+
+# TODO: Open programs with shift+...?
+
+# Reload sxhkd
+super + shift + Escape
+	pkill -USR1 -x sxhkd
+
+# Quit/Reload bspwm
+super + alt + {Escape,r}
+	bspc {quit,wm -r}
+
+# Quit Window
+super + shift + {q,k}
+	bspc node -{c,k}
+
+# Toggle Fullscreen (Monocle/Tiled)
+super + f
+	bspc desktop -l next
+
+# Change Window State
+super + shift + {t,s,f}
+	bspc node -t {tiled,floating,fullscreen}
+
+# Change Focus
+super + {Left,Right,Up,Down}
+	bspc node -f {west,east,north,south}
+
+# Preselect Area
+super + shift + {Left,Right,Up,Down}
+	bspc node -p {west,east,north,south}
+
+# Move Floating Window
+super + {Left,Right,Up,Down}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Expand Window
+super + alt + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Contract Window
+super + alt + shift + {h,j,k,l}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Change Desktop Focus
+super + {1,2,3,4,5,6,7,8,9,0}
+	bspc desktop -f {1,2,3,4,5,6,7,8,9,0}
+
+# Move Window to Desktop
+super + shift + {1,2,3,4,5,6,7,8,9,0}
+	bspc node -d {1,2,3,4,5,6,7,8,9,0}
