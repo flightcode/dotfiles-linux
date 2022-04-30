@@ -29,6 +29,10 @@ bspc config borderless_monocle true
 # Full-Screen if one window
 bspc config single_monocle true
 
+# Mouse Controls
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+
 # Autostart
 sxhkd & # Autostart keybinds
 picom --experimental-backends & # Compositor
