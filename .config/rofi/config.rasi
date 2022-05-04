@@ -1,5 +1,17 @@
 configuration {
-/*	modi: "window,run,ssh";*/
-/*	font: "mono 12";*/
-	theme: "~/.config/rofi/glass.css";
+	modi: "drun,run";
+	fixed-num-lines: true;
+	font: "NotoSans Nerd Font 10";
+	hover-select: true;
+	show-icons: true;
+/*	icon-theme: ;*/
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
 }
+@theme "glass"
