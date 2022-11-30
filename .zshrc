@@ -17,5 +17,4 @@ export GPG_TTY=$(tty)
 (cat ~/.cache/wal/sequences &)
 source ~/.cache/wal/colors-tty.sh
 
-alias dotfiles='/usr/bin/git --git-dir=/home/flightcode/.dotfiles/ --work-tree=/home/flightcode'
-
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
