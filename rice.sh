@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Install font
-yay -S --noconfirm nerd-fonts-source-code-pro
+yay -S --noconfirm nerd-fonts-complete
 
 #Install zsh & starship
 yay -S --noconfirm zsh starship
